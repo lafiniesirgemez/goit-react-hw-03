@@ -1,0 +1,36 @@
+.card {
+  width: 100%;
+  background-color: white;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 12px;
+  transition: transform 0.2s;
+  box-sizing: border-box;
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+.name {
+  font-weight: 600;
+  color: #4a4a4a;
+  margin: 0;
+}
+.number {
+  color: #8e8e8e;
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+}
+.btn {
+  background-color: #ffeded;
+  color: #ff5a5a;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
