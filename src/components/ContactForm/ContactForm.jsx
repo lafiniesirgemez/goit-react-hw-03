@@ -1,5 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+// 1. ADIM: nanoid kütüphanesini en üste import ediyoruz
+import { nanoid } from 'nanoid'; 
 import s from "./ContactForm.module.css";
 
 const FeedbackSchema = Yup.object().shape({
@@ -14,25 +16,21 @@ const FeedbackSchema = Yup.object().shape({
 });
 
 const ContactForm = ({ onAdd }) => {
-  //initial Values -> form ilk açıldığında içindeki kutuların hangi değerlerle ve hangi isimlerle başlayacağı
-  //onSubmit -> add contact butonuna basıldığında verilerin nereye gideceği
-
   const initialValues = {
     name: "",
     number: "",
   };
 
   const handleSubmit = (values, actions) => {
-    //App.jsx'den gelecek olan ekleme fonksiyonunu çağıracağız
-    //values: formun içindeki veriler
-    //actions: Formik'in bize sunduğu yardımcı araçlar (reset)
+    // 2. ADIM: Date.now().toString() yerine nanoid() fonksiyonunu çağırıyoruz
     onAdd({
-      id: Date.now().toString(),
+      id: nanoid(), 
       ...values,
     });
 
     actions.resetForm();
   };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -59,4 +57,5 @@ const ContactForm = ({ onAdd }) => {
     </Formik>
   );
 };
+
 export default ContactForm;
